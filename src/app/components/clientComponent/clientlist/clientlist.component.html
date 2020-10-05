@@ -1,0 +1,42 @@
+<br>
+<h4>List of Clients</h4>
+<br>
+
+
+<div class="btn-group">
+<input type="text" class="form-control" id="buscar" placeholder="buscar por nombre" [(ngModel)]='buscar'>
+<button class="btn btn-primary" (click)="consultarClient();">Filtrar</button>
+</div>
+
+<br><br>
+<table class="table table-bordered table-dark">
+
+    <tr>
+        <td>Identification</td>        
+        <td>Name</td>
+        <td>LastName </td>
+        <td>Country </td>        
+        <td>City</td>
+    </tr>
+
+    <tr *ngFor= "let client of clientList">
+           <td>{{client.identificationCard}}</td>
+           <td>{{client.name}}</td> 
+           <td>{{client.lastName}}</td> 
+           <td>{{client.country}}</td> 
+           <td>{{client.city}}</td>            
+           <td>
+               <button type="button" (click)="EditClient(client)" class="btn btn-outline-warning btn-sm">
+                   Edit
+               </button>
+           </td> 
+
+           <td>
+            <button type="button" (click)="DeleteClient(client.id)" class="btn btn-outline-danger btn-sm">
+                Delete
+            </button>
+        </td>
+    </tr>
+
+
+</table>

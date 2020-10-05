@@ -1,0 +1,41 @@
+<div class="container">    
+
+<br>
+<h4>List of Assigned Policies</h4>
+<br>
+
+
+<div class="btn-group">
+<input type="text" class="form-control" id="buscar" placeholder="buscar por nombre" [(ngModel)]='buscar'>
+<button class="btn btn-primary" (click)="consultarPolicy();">Filtrar</button>
+</div>
+
+<br><br>
+<table class="table table-bordered table-dark">
+
+    <tr>        
+        <td>Policy</td>
+        <td>Risk Type </td>
+        <td>Coverage Percentage </td>        
+        <td>Assigment Date</td>
+        <td>Client</td>        
+    </tr>
+
+    <tr *ngFor= "let policyAssigment of policyAssigmentList">           
+           <td>{{policyAssigment.policy.name}}</td>      
+           <td>{{policyAssigment.policy.riskType}}</td>
+           <td>{{policyAssigment.coveragePercentage}}</td>   
+           <td>{{policyAssigment.assigmentDate | date:'shortDate'}}</td>                     
+           <td>{{policyAssigment.client.name}}</td>               
+
+           <td>
+            <button type="button" (click)="DeleteAssignedPolicy(policyAssigment.id)" class="btn btn-outline-danger btn-sm">
+                Cancel policy
+            </button>
+        </td>
+    </tr>
+
+
+</table>
+
+</div>

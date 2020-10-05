@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+
+
+
+
+
+      <br>
+      <div class="jumbotron">
+        <h4>Create new Policy</h4>
+        <br>
+        <form #policyForm="ngForm">
+
+          <input type="hidden" name="id" id="id" #id="ngModel" [(ngModel)]="policyService.selectedPolicy.id">
+          <br>
+
+          <label for="name"><b>Name*</b></label>
+          <input type="text" class="form-control" name="name" id="name" #name="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.name">
+          <br>
+
+          <label for="description"><b>Description*</b></label>
+          <input type="text" class="form-control" name="description" id="description" #description="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.description">
+          <br>
+
+          <label for="coverageType"><b>Coverage Type*</b></label>
+          <select class="form-control" name="coverageType" id="coverageType" #coverageType='ngModel'
+            [(ngModel)]='policyService.selectedPolicy.coverageType'>
+            <option value="" disabled selected>--Select an option--</option>
+            <option *ngFor="let coverageType of coverageTypes" [value]="coverageType.id">{{coverageType.name}}</option>
+          </select>
+          <br>
+
+          <label for="startDate"><b>Start Date*</b></label>
+          <input type="date" class="form-control" name="startDate" id="startDate" #startDate="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.startDate">
+          <br>
+
+          <label for="coverageTime"><b>Coverage Time*</b></label>
+          <input type="number" class="form-control" name="coverageTime" id="coverageTime" #coverageTime="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.coverageTime">
+          <br>
+
+          <label for="price"><b>Price*</b></label>
+          <input type="number" class="form-control" name="price" id="price" #price="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.price">
+          <br>
+
+          <label for="riskType"><b>Risk Type*</b></label>
+          <select class="form-control" name="riskType" id="riskType" #riskType="ngModel"
+            [(ngModel)]="policyService.selectedPolicy.riskType">
+            <option value="" disabled selected>--Select an option--</option>
+            <option *ngFor="let riskType of riskTypes" [value]="riskType.id">{{riskType.name}}</option>
+          </select>
+          <br>
+
+          <div class="text-center">
+            <div class="btn-group btn-group-sm  text-center">
+              <button class="btn btn-primary form-control" type="submit" (click)="SaveChanges(policyForm)">
+                Save Changes
+              </button>
+
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+
+
+    </div>
+
+    <div class="col-md-6">
+      <app-policylist></app-policylist>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+      
+  
+  
+  
+  
+  
+  <br>
+  <div class="jumbotron">
+  <h4>Create new Client</h4>
+  <br>
+  <form #clientForm="ngForm">
+   
+    <input type="hidden" name="id" id="id" #id="ngModel"
+      [(ngModel)]="clientService.selectedClient.id">
+    <br>
+    
+    <label for="identificationCard"><b>Identification*</b></label>
+    <input type="number" class="form-control" name="identificationCard" id="identificationCard" #identificationCard="ngModel"
+      [(ngModel)]="clientService.selectedClient.identificationCard">
+    <br>
+
+    <label for="name"><b>Name*</b></label>
+    <input type="text" class="form-control" name="name" id="name" #name="ngModel"
+      [(ngModel)]="clientService.selectedClient.name">
+    <br>
+  
+    <label for="lastName"><b>Last Name*</b></label>
+    <input type="text" class="form-control" name="lastName" id="lastName" #lastName="ngModel"
+      [(ngModel)]="clientService.selectedClient.lastName">
+    <br>
+  
+    <label for="country"><b>Country*</b></label>
+    <input type="text" class="form-control" name="country" id="country" #country="ngModel"
+      [(ngModel)]="clientService.selectedClient.country">
+    <br>
+  
+    <label for="city"><b>City*</b></label>
+    <input type="text" class="form-control" name="city" id="city" #city   ="ngModel"
+      [(ngModel)]="clientService.selectedClient.city">
+    <br>
+  
+  
+    <div class="text-center">
+      <div class="btn-group btn-group-sm  text-center">
+        <button class="btn btn-primary form-control" type="submit" (click)="SaveChanges(clientForm)">
+          Save Changes
+        </button>
+  
+      </div>
+    </div> 
+  
+  
+  </form>
+</div>
+  
+  
+  
+    
+  </div>
+  
+  <div class="col-md-6">
+    <app-clientlist></app-clientlist>
+  </div>    
+  </div>
+  
+  </div>
